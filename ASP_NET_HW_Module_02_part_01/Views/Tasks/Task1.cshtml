@@ -3,3 +3,19 @@
     <h1>Решение 1</h1>
 
 </div>
+
+@{
+    var cat = new Cat();
+    var dog = new Dog();
+}
+
+<table class="table table-bordered table-sm table-striped">
+        <tr>
+            <td>@cat.ShowTitle()</td>
+            <td>@cat.ShowSound()</td>
+        </tr>
+        <tr>
+            <td>@dog.ShowTitle()</td>
+            <td>@dog.ShowSound()</td>
+        </tr>
+</table>
