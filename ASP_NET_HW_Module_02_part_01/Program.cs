@@ -1,7 +1,13 @@
+using ASP_NET_HW_Module_02_part_01.Models;
+using ASP_NET_HW_Module_02_part_01.Repositories;
+using ASP_NET_HW_Module_02_part_01.Repositories.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IRepository, Repository>();
 
 var app = builder.Build();
 

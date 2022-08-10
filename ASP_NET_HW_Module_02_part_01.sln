@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_NET_HW_Module_02_part_01", "ASP_NET_HW_Module_02_part_01\ASP_NET_HW_Module_02_part_01.csproj", "{A5D1789F-84DC-48B8-A645-5FA12991ACA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASP_NET_HW_Module_02_part_01", "ASP_NET_HW_Module_02_part_01\ASP_NET_HW_Module_02_part_01.csproj", "{A5D1789F-84DC-48B8-A645-5FA12991ACA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

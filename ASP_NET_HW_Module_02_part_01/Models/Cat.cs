@@ -2,13 +2,7 @@
 {
     public class Cat : Animal
     {
-        public string title = "Кот";
-        public string sound = "Мяукает";
-
-        public Cat()
-        {
-            Title = title;
-            Sound = sound;
-        }
+        public override string ShowTitle() => "Кот";
+        public override string ShowSound() => "Мяукает";
     }
 }

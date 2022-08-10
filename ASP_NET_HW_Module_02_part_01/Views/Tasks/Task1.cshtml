@@ -1,21 +1,42 @@
-﻿<div class="text-center">
+﻿@using ASP_NET_HW_Module_02_part_01.Models
+@using ASP_NET_HW_Module_02_part_01.Repositories
+@using ASP_NET_HW_Module_02_part_01.Repositories.Interface
+
+<div class="text-center">
 
     <h1>Решение 1</h1>
 
 </div>
 
-@{
-    var cat = new Cat();
-    var dog = new Dog();
-}
-
 <table class="table table-bordered table-sm table-striped">
+    <thead>
         <tr>
-            <td>@cat.ShowTitle()</td>
-            <td>@cat.ShowSound()</td>
+            <th>Название животного</th>
+            <th>Звук животного</th>
         </tr>
-        <tr>
-            <td>@dog.ShowTitle()</td>
-            <td>@dog.ShowSound()</td>
-        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="2" class="text-center">Нет данных</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var animal in Model)
+            {
+
+                <tr>
+                    <td>@animal.ShowTitle()</td>
+                    <td>@animal.ShowSound()</td>
+                </tr>
+            }
+        }
+    </tbody>
 </table>
+
+<form method="post">
+     <button type="submit" asp-page-handler="saveFile">Save</button>
+</form>
