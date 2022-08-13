@@ -3,3 +3,38 @@
     <h1>Решение 2</h1>
 
 </div>
+
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Название фигуры</th>
+            <th>Отображение фигуры</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="2" class="text-center">Нет данных</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                @for(int i=0; i<item.Key.Count; i++)
+                {
+                    <tr>
+                        <td>@item.Key[i]</td>
+                        <td>@item.Value[i]</td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>
+
+<form method="post">
+     <button type="submit" asp-page-handler="SaveFile">Save</button>
+</form>

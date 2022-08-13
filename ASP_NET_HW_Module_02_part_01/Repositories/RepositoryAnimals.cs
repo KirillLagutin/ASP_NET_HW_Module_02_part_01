@@ -1,13 +1,14 @@
 ﻿using ASP_NET_HW_Module_02_part_01.Models;
+using ASP_NET_HW_Module_02_part_01.Models.Animals;
 using ASP_NET_HW_Module_02_part_01.Repositories.Interface;
 
 namespace ASP_NET_HW_Module_02_part_01.Repositories
 {
-    public class Repository : IRepository
+    public class RepositoryAnimals : IRepositoryAnimals
     {
         public readonly List<Animal> Animals;
 
-        public Repository()
+        public RepositoryAnimals()
         {
             var cat = new Cat();
             var dog = new Dog();
@@ -24,13 +25,14 @@ namespace ASP_NET_HW_Module_02_part_01.Repositories
 
         public void WritingToFile()
         {
-            using FileStream path = new FileStream(@"~/App_Data/Animal.txt", FileMode.Create);
+            using FileStream fs = new FileStream(@"~\App_Data\test.txt", FileMode.Create);
 
-            using StreamWriter writer = new StreamWriter(path);
+            using StreamWriter sw = new StreamWriter(fs);
 
-            foreach (Animal animal in Animals)
+            var animals = GetAnimals();
+            foreach (var animal in animals)
             {
-                writer.WriteLine($"{animal.ShowTitle()} - {animal.ShowSound}");
+                sw.WriteLine($"{animal.ShowTitle()} - {animal.ShowSound()}");
             }
         }
     }

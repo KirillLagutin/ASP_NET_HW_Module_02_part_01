@@ -1,8 +1,4 @@
-﻿@using ASP_NET_HW_Module_02_part_01.Models
-@using ASP_NET_HW_Module_02_part_01.Repositories
-@using ASP_NET_HW_Module_02_part_01.Repositories.Interface
-
-<div class="text-center">
+﻿<div class="text-center">
 
     <h1>Решение 1</h1>
 
@@ -27,7 +23,6 @@
         {
             @foreach (var animal in Model)
             {
-
                 <tr>
                     <td>@animal.ShowTitle()</td>
                     <td>@animal.ShowSound()</td>
@@ -38,5 +33,5 @@
 </table>
 
 <form method="post">
-     <button type="submit" asp-page-handler="saveFile">Save</button>
+     <button type="submit" asp-page-handler="SaveFile">Save</button>
 </form>
