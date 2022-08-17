@@ -8,18 +8,33 @@ namespace ASP_NET_HW_Module_02_part_01.Controllers
 {
     public class TasksController : Controller
 	{
+		private IWebHostEnvironment env;
 		private readonly IRepositoryAnimals _repositoryAnimals;
 		private readonly IRepositoryFigures _repositoryFigures;
 		public Dictionary<List<string>, List<string>> figures;
 
-		public TasksController(IRepositoryAnimals repositoryAnimals, IRepositoryFigures repositoryFigures)
+		public TasksController(IWebHostEnvironment env, IRepositoryAnimals repositoryAnimals, IRepositoryFigures repositoryFigures)
         {
+			this.env = env;
 			_repositoryAnimals = repositoryAnimals;
 			_repositoryFigures = repositoryFigures;
 			figures = new Dictionary<List<string>, List<string>>();
         }
+
+		public IActionResult OnPostCreate(Figure figure)
+		{
+			var result = figure.Name + " ," + figure.Visual + Environment.NewLine;
+
+			var dataFile = env.WebRootPath + "/App_Data/data.txt";
+
+			System.IO.File.WriteAllText(@dataFile, result);
+
+			return RedirectToPage("");
+		}
+
 		public IActionResult SaveFile()
 		{
+
 			_repositoryAnimals.WritingToFile();
 
 			return View();

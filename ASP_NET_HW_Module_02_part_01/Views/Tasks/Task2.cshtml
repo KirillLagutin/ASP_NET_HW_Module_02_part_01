@@ -1,9 +1,12 @@
-﻿<div class="text-center">
+﻿@using ASP_NET_HW_Module_02_part_01.Models;
+
+<div class="text-center">
 
     <h1>Решение 2</h1>
 
 </div>
 
+<form method="post">
 <table class="table table-bordered table-sm table-striped">
     <thead>
         <tr>
@@ -11,8 +14,8 @@
             <th>Отображение фигуры</th>
         </tr>
     </thead>
-
-    <tbody>
+    
+    <div>
         @if (Model == null)
         {
             <tr>
@@ -26,15 +29,14 @@
                 @for(int i=0; i<item.Key.Count; i++)
                 {
                     <tr>
-                        <td>@item.Key[i]</td>
-                        <td>@item.Value[i]</td>
+                        <td><input type="text" name="Name" value="@item.Key[i]"/></td>
+                        <td><input type="text" name="Visual" value="@item.Value[i]"/></td>
                     </tr>
                 }
             }
         }
-    </tbody>
+        <td></td>
+        <td><input type="submit" value="Save" asp-page-handler="Create" /></td>
+    </div>
 </table>
-
-<form method="post">
-     <button type="submit" asp-page-handler="SaveFile">Save</button>
 </form>
